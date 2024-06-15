@@ -28,13 +28,12 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <div style={{margin:"1.5rem"}}>
+        <div style={{ margin: "1.5rem" }}>
           <span
             style={{
               fontFamily: "Montserrat",
               fontWeight: 600,
               fontSize: "1.5rem",
-             
             }}
           >
             Twitter Sentiment Analysis with NLP
@@ -45,7 +44,7 @@ function App() {
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Enter text"
+            placeholder="Enter Comment..."
             className="input-text"
           />
           <button type="submit" className="submit-button">
