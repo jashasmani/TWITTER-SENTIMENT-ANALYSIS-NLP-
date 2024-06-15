@@ -6,13 +6,11 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-# Download NLTK data (ensure this is run once in your environment)
 nltk.download('stopwords')
 
 app = Flask(__name__)
 CORS(app)
 
-# Load the model and vectorizer
 model = pickle.load(open('trained_model.sav', 'rb'))
 vectorizer = pickle.load(open('tfidf_vectorizer.sav', 'rb'))
 
