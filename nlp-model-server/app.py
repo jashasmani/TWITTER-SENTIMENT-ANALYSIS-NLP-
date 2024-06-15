@@ -1,23 +1,40 @@
 from flask import Flask, request, jsonify
-import joblib
 from flask_cors import CORS
+import pickle
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
+
+# Download NLTK data (ensure this is run once in your environment)
+nltk.download('stopwords')
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app)
 
-# Load your model
-model = joblib.load('trained_model.sav')
+# Load the model and vectorizer
+model = pickle.load(open('trained_model.sav', 'rb'))
+vectorizer = pickle.load(open('tfidf_vectorizer.sav', 'rb'))
+
+port_stem = PorterStemmer()
+
+def preprocess_text(text):
+    text = re.sub('[^a-zA-Z]', ' ', text)
+    text = text.lower()
+    text = text.split()
+    text = [port_stem.stem(word) for word in text if not word in stopwords.words('english')]
+    return ' '.join(text)
 
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
     text = data.get('text')
-    if not text:
-        return jsonify({'error': 'Text is required'}), 400
-
-    # Assuming your model has a `predict` method
-    prediction = model.predict([text])  # Adjust according to your model's expected input
-    return jsonify({'prediction': prediction[0]})
+    processed_text = preprocess_text(text)
+    text_features = vectorizer.transform([processed_text])
+    prediction = model.predict(text_features)[0]
+    prediction = int(prediction)  # Convert numpy.int64 to int
+    sentiment = "Positive" if prediction == 1 else "Negative"
+    return jsonify({'prediction': prediction, 'sentiment': sentiment})
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
