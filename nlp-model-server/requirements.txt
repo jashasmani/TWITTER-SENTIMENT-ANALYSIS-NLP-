@@ -1,0 +1,6 @@
+Flask
+flask-cors
+nltk
+scikit-learn
+pickle-mixin  # For loading pickled files
+gunicorn
