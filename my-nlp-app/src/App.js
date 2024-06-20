@@ -13,7 +13,7 @@ function App() {
     setLoading(true);
     setError(false);
     try {
-      const response = await axios.post("http://localhost:5000/predict", {
+      const response = await axios.post("https://twitter-sentiment-analysis-nlp.onrender.com/predict", {
         text,
       });
       setPrediction(response.data.prediction);
