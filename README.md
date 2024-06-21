@@ -35,6 +35,3 @@ This project analyzes sentiment in Twitter data using Natural Language Processin
 
 ## Contributions
 Contributions are welcome! Please follow our [Contributing Guidelines](CONTRIBUTING.md).
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
