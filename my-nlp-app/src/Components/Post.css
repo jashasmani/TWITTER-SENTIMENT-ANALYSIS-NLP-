@@ -1,0 +1,45 @@
+/* body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  text-align: center;
+} */
+/* Post.css */
+
+.post {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  
+  .post__header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .post__header h3 {
+    margin: 0;
+  }
+  
+  .post__image {
+    width: 100%;
+  }
+  
+  .post__footer {
+    padding: 10px;
+  }
+  
+  .post__caption {
+    margin-bottom: 5px;
+  }
+  
+  .post__likes {
+    font-weight: bold;
+    color: #3897f0; /* Instagram like color */
+  }
+  

@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #dbdbdb;
+    background-color: white;
+  }
+  
+  .profile-image {
+    margin-right: 15px;
+  }
+  
+  .profile-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .username {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .location {
+    margin: 0;
+    font-size: 14px;
+    color: #8e8e8e;
+  }
+  
