@@ -1,44 +1,67 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  background-color: #1a1a1a;
-  font-family: Arial, sans-serif;
-}
-
 .App {
+  font-family: Arial, sans-serif;
   text-align: center;
-} */
-/* Post.css */
+  
+}
 
-.post {
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
-  margin-bottom: 20px;
-  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.post__header {
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.post__header h3 {
-  margin: 0;
-}
-
-.post__image {
+.input-text {
   width: 100%;
+  height: 200px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  resize: none;
 }
 
-.post__footer {
-  padding: 10px;
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
 }
 
-.post__caption {
-  margin-bottom: 5px;
+.submit-button:hover {
+  opacity: 1;
 }
 
-.post__likes {
+.submit-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.5);
+}
+
+.prediction {
+  font-size: 24px;
   font-weight: bold;
-  color: #3897f0; /* Instagram like color */
+  margin-bottom: 20px;
 }
+
+.error {
+  color: red;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .input-text {
+    height: 150px;
+  }
+
+  .submit-button {
+    font-size: 16px;
+  }
+}
+
