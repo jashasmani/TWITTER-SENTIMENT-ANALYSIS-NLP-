@@ -14,7 +14,7 @@ function App() {
     setError(false);
     setPrediction(null);
     try {
-      const response = await axios.post("https://twitter-sentiment-analysis-nlp.onrender.com", {
+      const response = await axios.post("https://twitter-sentiment-analysis-nlp.onrender.com/predict", {
       // const response = await axios.post("http://localhost:8000/predict", {
         text,
       });
