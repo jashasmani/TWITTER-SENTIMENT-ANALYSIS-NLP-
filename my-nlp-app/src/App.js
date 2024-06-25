@@ -4,7 +4,7 @@ import "./App.css";
 
 function App() {
   const [text, setText] = useState("");
-  const [prediction, setPrediction] = useState(0);
+  const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -12,8 +12,10 @@ function App() {
     e.preventDefault();
     setLoading(true);
     setError(false);
+    setPrediction(null);
     try {
       const response = await axios.post("https://readmewiz.onrender.com/predict", {
+      // const response = await axios.post("http://localhost:8000/predict", {
         text,
       });
       setPrediction(response.data.prediction);
@@ -54,6 +56,8 @@ function App() {
         <p className="prediction">
           {loading ? (
             <span>Loading...</span>
+          ) : prediction === null ? (
+            ""
           ) : prediction === 0 ? (
             <span style={{ color: "Red" }}>Negative Comment</span>
           ) : (

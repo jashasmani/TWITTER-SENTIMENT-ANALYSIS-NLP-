@@ -30,9 +30,9 @@ def predict():
     processed_text = preprocess_text(text)
     text_features = vectorizer.transform([processed_text])
     prediction = model.predict(text_features)[0]
-    prediction = int(prediction)  # Convert numpy.int64 to int
+    prediction = int(prediction)
     sentiment = "Positive" if prediction == 1 else "Negative"
     return jsonify({'prediction': prediction, 'sentiment': sentiment})
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=8000)
